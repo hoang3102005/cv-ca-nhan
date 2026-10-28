@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Đặng Đỗ Duy Hoàng</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            background: #eeeeee;
+            font-family: Arial, sans-serif;
+            color: #333333;
+        }
+
+        /* Khung CV */
+        .cv {
+            width: 900px;
+            max-width: 100%;
+            margin: auto;
+            background: #ffffff;
+            display: flex;
+            box-shadow: 0 2px 10px #cccccc;
+            align-items: stretch;
+        }
+
+        /* Cột trái */
+        .left {
+            width: 32%;
+            flex-shrink: 0;
+            background: #303838;
+            color: #ffffff;
+            padding: 25px 20px;
+            overflow-wrap: anywhere;
+        }
+
+        /* Ảnh đại diện */
+        .avatar {
+            width: 160px;
+            height: 180px;
+            max-width: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 4px;
+        }
+
+        /* Họ tên */
+        .name {
+            color: #f5a000;
+            font-size: 23px;
+            line-height: 1.3;
+            margin: 0 0 8px;
+        }
+
+        .job {
+            color: #f5a000;
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0 0 12px;
+        }
+
+        /* Trạng thái làm việc */
+        .availability {
+            display: inline-block;
+            color: #ffffff;
+            background: #26734d;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 7px 10px;
+            border-radius: 4px;
+            margin: 0 0 15px;
+            line-height: 1.5;
+        }
+
+        /* Tiêu đề cột trái */
+        .left h3 {
+            color: #f5a000;
+            font-size: 14px;
+            border-bottom: 1px solid #f5a000;
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .left p,
+        .left li {
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .left p {
+            margin: 8px 0;
+        }
+
+        ul {
+            padding-left: 17px;
+        }
+
+        .left ul {
+            margin-top: 8px;
+        }
+
+        .left li {
+            margin-bottom: 5px;
+        }
+
+        /* Cột phải */
+        .right {
+            flex: 1;
+            min-width: 0;
+            padding: 30px 28px;
+        }
+
+        /* Tiêu đề các phần */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #d99a22;
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0 0 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 2px;
+            background: #e9c98b;
+            flex: 1;
+        }
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .intro {
+            font-size: 12px;
+            line-height: 1.8;
+            text-align: justify;
+            margin: 0;
+        }
+
+        /* Học vấn và kinh nghiệm */
+        .experience {
+            margin-bottom: 22px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .experience h3 {
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .date {
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .company {
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        .right ul {
+            margin: 8px 0 0;
+            padding-left: 18px;
+        }
+
+        .right li {
+            font-size: 11px;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 4px;
+        }
+
+        /* Dự án */
+        .project {
+            border-left: 3px solid #e9c98b;
+            padding-left: 12px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            font-size: 13px;
+            margin: 0 0 7px;
+        }
+
+        .project p {
+            font-size: 12px;
+            line-height: 1.7;
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* Điện thoại */
+        @media (max-width: 650px) {
+            body {
+                padding: 10px;
+            }
+
+            .cv {
+                flex-direction: column;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            .left {
+                padding: 25px;
+            }
+
+            .right {
+                padding: 25px 20px;
+            }
+
+            .avatar {
+                width: 160px;
+                height: 180px;
+            }
+
+            .experience-header {
+                flex-wrap: wrap;
+            }
+
+            .date {
+                white-space: normal;
+            }
+        }
+
+        /* In hoặc lưu PDF */
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: #ffffff;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .cv {
+                width: 100%;
+                max-width: none;
+                box-shadow: none;
+            }
+
+            .left {
+                width: 32%;
+            }
+
+            .right {
+                padding: 22px 20px;
+            }
+
+            .section,
+            .experience,
+            .project {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv">
+
+        <!-- CỘT TRÁI -->
+        <aside class="left">
+
+            <img src="avatar.png"
+                 alt="Ảnh đại diện"
+                 class="avatar">
+
+            <h1 class="name">Đặng Đỗ Duy Hoàng</h1>
+
+            <p class="job">Sinh viên Công nghệ phần mềm</p>
+
+            <p class="availability">
+                ✓ Có thể đi làm ngay
+            </p>
+
+            <!-- Thông tin liên hệ -->
+            <h3>THÔNG TIN LIÊN HỆ</h3>
+
+            <p>☎ &nbsp; 0876 077 789</p>
+            <p>✉ &nbsp; gacon03102005@gmail.com</p>
+            <p>📍 &nbsp; 75/3 Nguyễn Tư Giản, P. An Hội Tây</p>
+
+            <!-- Kỹ năng -->
+            <h3>CÁC KỸ NĂNG</h3>
+
+            <p><b>KỸ NĂNG CHUYÊN MÔN</b></p>
+
+            <ul>
+                <li>Kiến thức lập trình JavaScript, Python, C++ và Java.</li>
+                <li>HTML, CSS và thiết kế giao diện website.</li>
+                <li>Kiến thức cơ sở dữ liệu và SQL.</li>
+                <li>Phân tích và xử lý lỗi phần mềm.</li>
+            </ul>
+
+            <p><b>KỸ NĂNG MỀM</b></p>
+
+            <ul>
+                <li>Giao tiếp và làm việc nhóm.</li>
+                <li>Tư duy logic và sáng tạo.</li>
+                <li>Quản lý thời gian.</li>
+                <li>Giải quyết vấn đề.</li>
+                <li>Tinh thần học hỏi và trách nhiệm.</li>
+            </ul>
+
+            <!-- Sở thích -->
+            <h3>SỞ THÍCH</h3>
+
+            <p>Lập trình, đá bóng, nghe nhạc và tìm hiểu công nghệ mới.</p>
+
+        </aside>
+
+        <!-- CỘT PHẢI -->
+        <main class="right">
+
+            <!-- Mục tiêu nghề nghiệp -->
+            <section class="section">
+                <h2 class="section-title">MỤC TIÊU NGHỀ NGHIỆP</h2>
+
+                <p class="intro">
+                    Mong muốn phát triển bản thân trong lĩnh vực Công nghệ
+                    phần mềm, vận dụng kiến thức đã học vào các dự án thực tế.
+                    Không ngừng nâng cao kỹ năng lập trình, tư duy giải quyết
+                    vấn đề và khả năng làm việc nhóm để trở thành kỹ sư phần
+                    mềm chuyên nghiệp. Sẵn sàng học hỏi, tiếp thu công nghệ
+                    mới và đóng góp vào sự phát triển của công ty.
+                </p>
+            </section>
+
+            <!-- Học vấn -->
+            <section class="section">
+                <h2 class="section-title">HỌC VẤN</h2>
+
+                <div class="experience">
+                    <div class="experience-header">
+                        <h3>ĐẠI HỌC GIAO THÔNG VẬN TẢI TP.HCM</h3>
+                    </div>
+
+                    <p class="company">
+                        Chuyên ngành: Công nghệ phần mềm
+                    </p>
+
+                    <p class="intro">
+                        Đang học tập và rèn luyện kiến thức về lập trình,
+                        phát triển phần mềm, cơ sở dữ liệu và thiết kế website.
+                        Mong muốn áp dụng kiến thức chuyên ngành vào môi trường
+                        làm việc thực tế.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Kinh nghiệm -->
+            <section class="section">
+                <h2 class="section-title">KINH NGHIỆM LÀM VIỆC</h2>
+
+                <div class="experience">
+                    <div class="experience-header">
+                        <h3>THỰC TẬP SINH KỸ SƯ PHẦN MỀM</h3>
+                        <span class="date">06/2025 - 01/2026</span>
+                    </div>
+
+                    <p class="company">Công ty BCD</p>
+
+                    <ul>
+                        <li>Hỗ trợ kiểm tra và xử lý lỗi phần mềm.</li>
+                        <li>Kiểm tra phần mềm theo yêu cầu dự án.</li>
+                        <li>Tham gia bảo trì và cập nhật chức năng.</li>
+                        <li>Phối hợp với nhóm phát triển trong công việc.</li>
+                        <li>Tìm hiểu quy trình phát triển phần mềm thực tế.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Dự án cá nhân -->
+            <section class="section">
+                <h2 class="section-title">DỰ ÁN CÁ NHÂN</h2>
+
+                <div class="project">
+                    <h3>Website giới thiệu bản thân</h3>
+                    <p>
+                        Xây dựng trang CV cá nhân bằng HTML và CSS,
+                        trình bày thông tin cá nhân, học vấn, kỹ năng
+                        và kinh nghiệm. Thiết kế giao diện có thể hiển
+                        thị trên máy tính và điện thoại.
+                    </p>
+                </div>
+
+                <div class="project">
+                    <h3>Dự án học tập về phát triển phần mềm</h3>
+                    <p>
+                        Thực hành xây dựng giao diện, tổ chức mã nguồn,
+                        tìm hiểu cơ sở dữ liệu và quy trình phát triển
+                        ứng dụng trong quá trình học tập.
+                    </p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>
